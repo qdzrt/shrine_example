@@ -14,16 +14,18 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address => "smtp.126.com",
-      :port => 25,
-      :domain => "126.com",
-      :authentication => :login,
-      :user_name => "itemyaimydwhg@163.com",
-      :password => "datpfaitremember"
+    address:              'smtp.163.com',
+    port:                 25,
+    domain:               '163.com',
+    authentication:       'plain',
+    user_name:            'itemyaimydwhg@163.com',
+    password:             'datpfaitremember',
+    enable_starttls_auto: true,
+    openssl_verify_mode:  'none'
   }
 
   # Print deprecation notices to the Rails logger.
