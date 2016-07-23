@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'audios#index'
 
   devise_for :users
+  resource :profile
 
   resources :attachments
   resources :pictures
