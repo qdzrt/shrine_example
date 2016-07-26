@@ -1,4 +1,4 @@
-class AudiosController < AttachmentsController
+class AudiosController < ApplicationController
   before_action :set_audio, only: [:show, :edit, :update, :destroy]
 
   # GET /audios

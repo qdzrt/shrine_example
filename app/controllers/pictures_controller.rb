@@ -1,10 +1,12 @@
-class PicturesController < AttachmentsController
+class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
 
   # GET /pictures
   # GET /pictures.json
   def index
+    @picture = Picture.new
     @pictures = Picture.all
+    respond_with @pictures
   end
 
   # GET /pictures/1
@@ -14,7 +16,6 @@ class PicturesController < AttachmentsController
 
   # GET /pictures/new
   def new
-    @picture = Picture.new
   end
 
   # GET /pictures/1/edit
@@ -69,6 +70,6 @@ class PicturesController < AttachmentsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:file_data, :type)
+      params.require(:picture).permit(:file)
     end
 end

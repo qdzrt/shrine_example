@@ -28,6 +28,12 @@ gem 'devise', '~> 4.2.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'responders'
 
+#shrine dependent
+gem 'shrine'
+gem 'fastimage'
+gem 'image_processing'
+gem 'mini_magick'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
