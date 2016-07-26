@@ -15,9 +15,8 @@
     <% if @pictures %>
       <% @pictures.each do |picture| %>
         <tr>
-          <td><%= picture.file_data %></td>
+          <td><%= picture.original_filename %></td>
           <td>
-            <%= link_to 'Show', picture %>
             <%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %>
           </td>
         </tr>

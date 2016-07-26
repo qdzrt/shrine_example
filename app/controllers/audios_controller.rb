@@ -1,28 +1,22 @@
 class AudiosController < ApplicationController
   before_action :set_audio, only: [:show, :edit, :update, :destroy]
 
-  # GET /audios
-  # GET /audios.json
   def index
+    @audio = Audio.new
     @audios = Audio.all
+    respond_with @audios
   end
 
-  # GET /audios/1
-  # GET /audios/1.json
   def show
   end
 
-  # GET /audios/new
   def new
     @audio = Audio.new
   end
 
-  # GET /audios/1/edit
   def edit
   end
 
-  # POST /audios
-  # POST /audios.json
   def create
     @audio = Audio.new(audio_params)
 
@@ -37,8 +31,6 @@ class AudiosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /audios/1
-  # PATCH/PUT /audios/1.json
   def update
     respond_to do |format|
       if @audio.update(audio_params)
@@ -51,8 +43,6 @@ class AudiosController < ApplicationController
     end
   end
 
-  # DELETE /audios/1
-  # DELETE /audios/1.json
   def destroy
     @audio.destroy
     respond_to do |format|
@@ -62,13 +52,11 @@ class AudiosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_audio
       @audio = Audio.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def audio_params
-      params.require(:audio).permit(:file_data, :type)
+      params.require(:audio).permit(:file)
     end
 end

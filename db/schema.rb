@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726095541) do
+ActiveRecord::Schema.define(version: 20160726141339) do
 
   create_table "attachments", force: :cascade do |t|
     t.text     "file_data",  limit: 65535
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20160726095541) do
     t.integer  "user_id",    limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "linked_attachments", force: :cascade do |t|
+    t.integer  "attachment_id",       limit: 4
+    t.integer  "attachmentable_id",   limit: 4
+    t.string   "attachmentable_type", limit: 255
+    t.integer  "user_id",             limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,9 +43,11 @@ ActiveRecord::Schema.define(version: 20160726095541) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "name",                   limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
