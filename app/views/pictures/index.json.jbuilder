@@ -1,4 +1,1 @@
-json.array!(@attachments) do |attachment|
-  json.extract! attachment, :id, :file_data, :type
-  json.url attachment_url(attachment, format: :json)
-end
+json.pictures @pictures, :id, :file_data, :type, :created_at, :updated_at

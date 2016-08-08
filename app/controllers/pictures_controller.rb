@@ -4,7 +4,7 @@ class PicturesController < ApplicationController
   def index
     @picture = Picture.new
     @pictures = Picture.all
-    respond_with @pictures
+    respond_with @pictures, location: nil
   end
 
   def show
@@ -18,6 +18,7 @@ class PicturesController < ApplicationController
 
   def create
     @picture = Picture.new(picture_params)
+    @picture.user = current_user
     respond_to do |format|
       if @picture.save
         format.html { redirect_to @picture, notice: 'picture was successfully created.' }

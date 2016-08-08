@@ -1,4 +1,6 @@
-json.array!(@attachments) do |attachment|
-  json.extract! attachment, :id, :file_data, :type
-  json.url attachment_url(attachment, format: :json)
+json.audios @audios do |audio|
+  json.id audio.id
+  json.file_data audio.file_data
+  json.type audio.type
+  json.url audios_url audio, format: :json
 end
