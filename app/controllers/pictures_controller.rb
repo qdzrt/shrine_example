@@ -21,6 +21,8 @@ class PicturesController < ApplicationController
     @picture.user = current_user
     respond_to do |format|
       if @picture.save
+        WorkerJob.perform_later
+        puts 'worker job now'
         format.html { redirect_to @picture, notice: 'picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       else

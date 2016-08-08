@@ -34,6 +34,11 @@ gem 'fastimage'
 gem 'image_processing'
 gem 'mini_magick'
 
+gem 'sidekiq'
+# sidekiq Web UI
+gem 'sinatra', :require => false
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
