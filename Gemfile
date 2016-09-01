@@ -36,7 +36,7 @@ gem 'mini_magick'
 
 gem 'sidekiq'
 # sidekiq Web UI
-gem 'sinatra', :require => null
+gem 'sinatra', :require => false
 
 
 # Use ActiveModel has_secure_password
